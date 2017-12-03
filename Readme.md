@@ -1,0 +1,6 @@
+# Flashcards
+
+## Script
+```
+$ yarn start
+```
