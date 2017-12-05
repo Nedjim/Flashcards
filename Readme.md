@@ -6,5 +6,5 @@
 
 ## Script
 ```
-$ yarn start
+$ nodemon
 ```
