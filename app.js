@@ -13,17 +13,22 @@ app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
     const name = req.cookies.username;
-    name ? res.render('index', { name }) : res.render('hello');
+    name ? res.render('index') : res.render('hello');
 });
 
-app.post('/hello', (req, res) => {
+app.post('/signin', (req, res) => {
     res.cookie('username', req.body.username)
     res.redirect('/')
 });
 
-app.get('/hello', (req, res) => {
+app.get('/signin', (req, res) => {
     const name = req.cookies.username;
-    name ? res.redirect('/') : res.render('hello');
+    name ? res.redirect('/') : res.render('signin');
+});
+
+app.post('/goodbye', (req, res) => {
+    res.clearCookie('username')
+    res.redirect('/signin')
 });
 
 app.listen(3000, ()=>{
