@@ -8,12 +8,6 @@ app.use(bodyParser.urlencoded({ extended: false}))
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-    console.log('First middleware');
-    const err = new Error('Ho non!!');
-    next(err);
-})
-
-app.use((req, res, next) => {
     next();
 })
 
@@ -43,6 +37,17 @@ app.post('/goodbye', (req, res) => {
 
 app.get('/cards', (req, res) => {
     res.render('card', {prompt: 'Hey hey'})
+});
+
+app.use((req, res, next) => {
+    const err = new Error('Not found');
+    err.status = 404;
+    next(err);
+})
+app.use((err, req, res, next) => {
+    res.locals.error = err;
+    res.status(err.status);
+    res.render('error')
 })
 
 app.listen(3000, ()=>{
