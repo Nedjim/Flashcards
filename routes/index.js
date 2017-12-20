@@ -3,7 +3,12 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const name = req.cookies.username;
-    name ? res.render('index') : res.render('signin');
+    if(name) {
+        res.render('index', {name})
+    } 
+    else {
+        res.render('signin');
+    }
 });
 
 router.get('/signin', (req, res) => {
