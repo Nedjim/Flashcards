@@ -1,11 +1,7 @@
-extends layout.pug
+extends app
 
-block content
-    if name
-        h2 Welcome #{name}
-    else
-        form(action='/signin', method='post')
-            label Please enter your name:
-                input(type='text', name='username')
-            button(type='submit') Sign in
-    
+block intro
+  form.namecard-form(action='/signin', method='post')
+    label.namecard-prompt Please enter your name:
+      input.namecard-name(type='text', name='username')
+    button.namecard-submit(type='submit') Submit

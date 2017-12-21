@@ -32,7 +32,6 @@ router.get('/:id', (req, res) => {
         templateData.sideToShow = 'question';
         templateData.sideToShowDisplay = 'Question'
     }
-    console.log(templateData)
     res.render('card', templateData)
 });
 

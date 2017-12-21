@@ -181,7 +181,8 @@ input {
 }
 
 .card-header {
-  background-color: #727C85;
+  background-image: url('/static/img/content-header-answer.png');
+  background-size: cover;
   height: 100px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
